@@ -15,4 +15,9 @@ export class ProductListComponent {
     this.title = 'teste de funcionamento click...';
   }
 
+  onBuy(name: string) {
+    // window.alert(`You just bought ${this.selectedProduct}!`);
+    window.alert(`You just bought ${name}!`);
+  }
+
 }
