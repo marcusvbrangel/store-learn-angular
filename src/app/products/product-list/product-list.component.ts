@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
+  selectedProduct = '';
+
+  title = 'Bem vindo ao Store!!!'
+
+  onClick() {
+    this.title = 'teste de funcionamento click...';
+  }
+
 }
