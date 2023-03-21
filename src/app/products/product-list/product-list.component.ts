@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ProductListComponent {
 
-  selectedProduct = '';
+  selectedProduct = 'Microphone';
 
   title = 'Bem vindo ao Store!!!'
 
