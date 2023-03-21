@@ -6,7 +6,9 @@ import {
   ViewEncapsulation,
   ChangeDetectionStrategy,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 
 @Component({
@@ -16,7 +18,7 @@ import {
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailComponent implements OnInit, OnDestroy {
+export class ProductDetailComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() name = '';
 
@@ -32,6 +34,15 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     console.log('The Component "ProductDetailComponent" is being destroyed');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const product = changes['name'];
+    if (!product.isFirstChange()) {
+      const oldValue = product.previousValue;
+      const newValue = product.currentValue;
+      console.log(`Product changed from ${oldValue} to ${newValue}`);
+    }
   }
 
   buy() {
